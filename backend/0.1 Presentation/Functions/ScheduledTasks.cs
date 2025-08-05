@@ -1,4 +1,4 @@
-﻿using Data.Repositories.Interfaces;
+﻿using _0._4_Domain.Interfaces.Repository;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using System;

@@ -1,5 +1,5 @@
-﻿using Data.Entities;
-using Data.Repositories.Interfaces;
+﻿using _0._4_Domain.Interfaces.Repository;
+using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;

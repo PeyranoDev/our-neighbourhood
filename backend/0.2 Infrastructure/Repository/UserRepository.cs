@@ -1,6 +1,6 @@
-﻿using Data.Entities;
+﻿using _0._4_Domain.Interfaces.Repository;
+using Data.Entities;
 using Data.Enum;
-using Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
