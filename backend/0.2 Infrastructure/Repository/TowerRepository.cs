@@ -1,8 +1,5 @@
-﻿using Application.Schemas.Requests;
-using Domain.Common.Models;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Repository;
-using Application.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
@@ -30,26 +27,6 @@ namespace Infrastructure.Repository
             return await _context.Towers
                 .Include(t => t.Apartments)
                 .FirstOrDefaultAsync(t => t.Id == id);
-        }
-
-        public async Task<PagedResult<Tower>> GetPublicTowerListAsync(TowerFilterParams filterParams)
-        {
-            var query = _context.Towers.AsNoTracking()
-                .ApplyFilters(filterParams)
-                .ApplySorting(filterParams.SortBy, filterParams.SortOrder);
-
-            var totalRecords = await query.CountAsync();
-
-            var data = await query
-                .Skip((filterParams.PageNumber - 1) * filterParams.PageSize)
-                .Take(filterParams.PageSize)
-                .ToListAsync();
-
-            return new PagedResult<Tower>
-            {
-                Items = data,
-                TotalRecords = totalRecords
-            };
         }
 
         public async Task<Tower?> GetByNameAsync(string name)
