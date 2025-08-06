@@ -1,4 +1,4 @@
-﻿using Data.Entities;
+﻿using Domain.Entities;
 using System.Linq;
 using System.Linq.Expressions;
 

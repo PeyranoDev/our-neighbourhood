@@ -32,8 +32,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj": {
-                "projectPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj"
+              "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj": {
+                "projectPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj"
               }
             }
           }
@@ -103,12 +103,12 @@
         }
       }
     },
-    "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj": {
+    "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj",
-        "projectName": "0.3 Application",
-        "projectPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj",
+        "projectUniqueName": "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj",
         "packagesPath": "C:\\Users\\peyra\\.nuget\\packages\\",
         "outputPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\obj\\",
         "projectStyle": "PackageReference",
@@ -131,8 +131,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj": {
-                "projectPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj"
+              "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj": {
+                "projectPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj"
               }
             }
           }
@@ -198,12 +198,12 @@
         }
       }
     },
-    "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj": {
+    "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj",
-        "projectName": "0.4 Domain",
-        "projectPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj",
+        "projectUniqueName": "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\peyra\\.nuget\\packages\\",
         "outputPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\obj\\",
         "projectStyle": "PackageReference",

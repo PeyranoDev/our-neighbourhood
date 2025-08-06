@@ -1,16 +1,16 @@
-﻿using AoristoTowersFunctions.Helpers;
-using AoristoTowersFunctions.Middleware;
+﻿using Presentation.Helpers;
+using Presentation.Middlewares;
 using AutoMapper;
-using Common.Models.Requests;
-using Common.Models.Responses;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using Services.Main.Interfaces;
+using Application.Services.Interfaces;
 using System.Net;
 using System.Web;
+using Application.Schemas.Responses;
+using Application.Schemas.Requests;
 
-namespace AoristoTowersFunctions.Functions
+namespace Presentation.Functions
 {
     public class UserFunctions
     {

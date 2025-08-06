@@ -1,12 +1,7 @@
-﻿using Data.Enum;
-using System;
-using System.Collections.Generic;
+﻿using Domain.Common.Enum;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace Domain.Entities
 {
     public class Vehicle
     {

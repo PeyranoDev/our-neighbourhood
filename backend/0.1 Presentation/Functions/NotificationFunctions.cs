@@ -1,15 +1,15 @@
-﻿using AoristoTowersFunctions.Helpers;
-using AoristoTowersFunctions.Middleware;
-using Common.Models.Requests;
-using Common.Models.Responses;
+﻿using Application.Schemas.Requests;
+using Application.Schemas.Responses;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using Services.Main.Interfaces;
+using Presentation.Helpers;
+using Presentation.Middlewares;
+using Application.Services.Interfaces;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace AoristoTowersFunctions.Functions
+namespace Presentation.Functions
 {
     public class NotificationFunctions
     {

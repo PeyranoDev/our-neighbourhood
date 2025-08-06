@@ -1,18 +1,18 @@
-using AoristoTowersFunctions.Middleware;
+using Application.Helpers;
+using Application.Providers;
+using Application.Schemas.Profiles;
+using Application.Services.Implementations;
+using Application.Services.Interfaces;
 using Azure.Identity;
-using Common.Models.Profiles;
-using Data;
-using Data.Models.Profiles;
-using Data.Repositories.Implementations;
-using Data.Repositories.Interfaces;
+using Domain.Repository;
+using Infrastructure;
+using Infrastructure.Providers;
+using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Services.Main.Implementations;
-using Services.Main.Interfaces;
-using Services.Providers;
-using System;
+using Presentation.Middlewares;
 
 var host = new HostBuilder()
     .ConfigureAppConfiguration(configBuilder =>
@@ -47,7 +47,7 @@ var host = new HostBuilder()
 
 
 
-        services.AddSingleton<FirebaseProvider>();
+        services.AddSingleton<INotificationSender, FirebaseProvider>();
 
         services.AddScoped<INotificationService, NotificationService>();
         services.AddScoped<IUserService, UserService>();

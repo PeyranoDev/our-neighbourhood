@@ -1,10 +1,10 @@
 ﻿
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
-using Common.Infrastructure.Security.Interface;
+using Infrastructure.Security.Interface;
 using Microsoft.Extensions.Configuration;
 
-namespace Common.Security;
+namespace Infrastructure.Security.Implementations;
 
 public class AzureKeyVaultSecretProvider : ISecretProvider
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Entities
+namespace Domain.Entities
 {
     public class Amenity
     {

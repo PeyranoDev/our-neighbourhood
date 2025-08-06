@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.Security.Interface
+﻿namespace Infrastructure.Security.Interface
 {
     public interface ISecretProvider
     {

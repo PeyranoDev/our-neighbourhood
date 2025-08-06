@@ -1,5 +1,5 @@
-﻿using Common.Models.Requests;
-using Data.Entities;
+﻿using Application.Schemas.Requests;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Helpers
+namespace Application.Helpers
 {
     public static class TowerQueryHelper
     {

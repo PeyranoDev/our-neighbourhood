@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xsU6bbQ0yaI=",
+  "dgSpecHash": "m1l2BHG7/mk=",
   "success": true,
-  "projectFilePath": "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj",
+  "projectFilePath": "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\peyra\\.nuget\\packages\\automapper\\15.0.1\\automapper.15.0.1.nupkg.sha512",
     "C:\\Users\\peyra\\.nuget\\packages\\azure.core\\1.46.1\\azure.core.1.46.1.nupkg.sha512",

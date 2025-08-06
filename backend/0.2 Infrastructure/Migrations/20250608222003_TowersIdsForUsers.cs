@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Data.Migrations
+namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class TowersIdsForUsers : Migration

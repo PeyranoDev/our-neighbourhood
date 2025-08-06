@@ -1,12 +1,6 @@
-﻿using Data.Enum;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Common.Enum;
 
-namespace Data.Entities
+namespace Domain.Entities
 {
     public class Reservation
     {

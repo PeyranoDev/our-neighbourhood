@@ -1,17 +1,15 @@
-﻿using AoristoTowersFunctions.Helpers;
-using AoristoTowersFunctions.Middleware;
-using Common.Models.Requests;
-using Common.Models.Responses;
-using Data.Entities;
+﻿using Presentation.Helpers;
+using Domain.Entities;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using Services.Main.Interfaces;
-using System.Collections.Generic;
+using Application.Services.Interfaces;
 using System.Net;
-using System.Threading.Tasks;
+using Application.Schemas.Responses;
+using Presentation.Middlewares;
+using Application.Schemas.Requests;
 
-namespace AoristoTowersFunctions.Functions
+namespace Presentation.Functions
 {
     public class ApartmentFunctions
     {

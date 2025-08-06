@@ -1,13 +1,8 @@
-﻿using _0._4_Domain.Interfaces.Repository;
-using Data.Entities;
+﻿using Domain.Entities;
+using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Data.Repositories.Implementations
+namespace Infrastructure.Repository
 {
     public class InvitationRepository : IInvitationRepository
     {

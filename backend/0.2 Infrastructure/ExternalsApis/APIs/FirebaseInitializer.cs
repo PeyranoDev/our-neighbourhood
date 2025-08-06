@@ -4,17 +4,20 @@ using Azure.Security.KeyVault.Secrets;
 using Google.Apis.Auth.OAuth2;
 using FirebaseAdmin;
 
-public static class FirebaseInitializer
+namespace Infrastructure.Apis
 {
-    public static async Task InitializeAsync(string keyVaultUrl, string secretName)
+    public static class FirebaseInitializer
     {
-        var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
-        KeyVaultSecret secret = await client.GetSecretAsync(secretName);
-        string jsonCredentials = secret.Value;
-
-        FirebaseApp.Create(new AppOptions
+        public static async Task InitializeAsync(string keyVaultUrl, string secretName)
         {
-            Credential = GoogleCredential.FromJson(jsonCredentials)
-        });
+            var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
+            KeyVaultSecret secret = await client.GetSecretAsync(secretName);
+            string jsonCredentials = secret.Value;
+
+            FirebaseApp.Create(new AppOptions
+            {
+                Credential = GoogleCredential.FromJson(jsonCredentials)
+            });
+        }
     }
 }

@@ -1,15 +1,8 @@
-﻿using Data.Entities;
-using Data.Enum;
+﻿using Domain.Common.Enum;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Data
+namespace Infrastructure
 {
     public class AqualinaAPIContext : DbContext
     {

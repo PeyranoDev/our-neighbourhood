@@ -1,19 +1,15 @@
-﻿using AoristoTowersFunctions.Helpers;
-using Microsoft.Azure.Functions.Worker;
+﻿using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.Functions.Worker.Middleware;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Linq;
 using System.Net;
-using System.Reflection; 
-using System.Security.Claims;
+using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
+using Application.Helpers;
 
-namespace AoristoTowersFunctions.Middleware
+namespace Presentation.Middlewares
 {
     /// <summary>
     /// Atributo personalizado para decorar las funciones que requieren autorización.

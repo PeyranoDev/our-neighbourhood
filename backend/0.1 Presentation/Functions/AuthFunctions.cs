@@ -1,23 +1,20 @@
-﻿using AoristoTowersFunctions.Helpers;
-using AoristoTowersFunctions.Middleware;
-using Common.Models.Requests;
-using Common.Models.Responses;
-using Data.Entities;
+﻿using Presentation.Helpers;
+using Domain.Entities;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Services.Main.Interfaces;
-using System;
-using System.Collections.Generic;
+using Application.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
+using Application.Helpers;
+using Application.Schemas.Requests;
+using Application.Schemas.Responses;
+using Presentation.Middlewares;
 
-namespace AoristoTowersFunctions.Functions
+namespace Presentation.Functions
 {
     public class AuthFunctions
     {

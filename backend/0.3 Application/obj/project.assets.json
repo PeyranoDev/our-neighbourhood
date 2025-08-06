@@ -478,14 +478,14 @@
           }
         }
       },
-      "0.4 Domain/1.0.0": {
+      "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "compile": {
-          "bin/placeholder/0.4 Domain.dll": {}
+          "bin/placeholder/Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/0.4 Domain.dll": {}
+          "bin/placeholder/Domain.dll": {}
         }
       }
     }
@@ -1278,19 +1278,19 @@
         "version.txt"
       ]
     },
-    "0.4 Domain/1.0.0": {
+    "Domain/1.0.0": {
       "type": "project",
-      "path": "../0.4 Domain/0.4 Domain.csproj",
-      "msbuildProject": "../0.4 Domain/0.4 Domain.csproj"
+      "path": "../0.4 Domain/Domain.csproj",
+      "msbuildProject": "../0.4 Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "0.4 Domain >= 1.0.0",
       "AutoMapper >= 15.0.1",
       "Azure.Identity >= 1.14.2",
       "Azure.Storage.Blobs >= 12.25.0",
       "BCrypt.Net-Next >= 4.0.3",
+      "Domain >= 1.0.0",
       "Microsoft.AspNetCore.Http.Features >= 5.0.17",
       "SixLabors.ImageSharp >= 3.1.11"
     ]
@@ -1302,9 +1302,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj",
-      "projectName": "0.3 Application",
-      "projectPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\0.3 Application.csproj",
+      "projectUniqueName": "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj",
+      "projectName": "Application",
+      "projectPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\Application.csproj",
       "packagesPath": "C:\\Users\\peyra\\.nuget\\packages\\",
       "outputPath": "C:\\our-neighbourhood\\backend\\0.3 Application\\obj\\",
       "projectStyle": "PackageReference",
@@ -1327,8 +1327,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj": {
-              "projectPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\0.4 Domain.csproj"
+            "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj": {
+              "projectPath": "C:\\our-neighbourhood\\backend\\0.4 Domain\\Domain.csproj"
             }
           }
         }

@@ -1,6 +1,6 @@
-﻿using Data.Enum;
+﻿using Domain.Common.Enum;
 
-namespace Data.Entities
+namespace Domain.Entities
 {
     public class Role
     {

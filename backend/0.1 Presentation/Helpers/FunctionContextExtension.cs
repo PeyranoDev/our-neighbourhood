@@ -1,4 +1,4 @@
-﻿using Common.Models.Responses;
+﻿using Application.Schemas.Responses;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using System;
@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace AoristoTowersFunctions.Helpers
+namespace Presentation.Helpers
 {
     /// <summary>
     /// Métodos de extensión para simplificar el trabajo con el contexto de las funciones.

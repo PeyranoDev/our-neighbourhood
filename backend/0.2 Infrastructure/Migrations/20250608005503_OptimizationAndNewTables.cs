@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Data.Migrations
+namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class OptimizationAndNewTables : Migration
@@ -316,7 +316,7 @@ namespace Data.Migrations
             migrationBuilder.AddPrimaryKey(name: "PK_AmenityAvailability", table: "AmenityAvailability", column: "Id");
 
 
-            // Actualizar Seed Data (con los valores INT de los enums)
+            // Actualizar Seed Domain (con los valores INT de los enums)
             migrationBuilder.UpdateData(table: "Roles", keyColumn: "Id", keyValue: 1, column: "Type", value: 0);
             migrationBuilder.UpdateData(table: "Roles", keyColumn: "Id", keyValue: 2, column: "Type", value: 1);
             migrationBuilder.UpdateData(table: "Roles", keyColumn: "Id", keyValue: 3, column: "Type", value: 2);

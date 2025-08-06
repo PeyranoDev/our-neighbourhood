@@ -1,13 +1,10 @@
-﻿using Common.Models.Requests;
-using Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+using Application.Schemas.Requests;
+using Domain.Entities;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Common.Enum;
 
-namespace Common.Helpers
+namespace Application.Helpers
 {
     public static class SortingHelper
     {

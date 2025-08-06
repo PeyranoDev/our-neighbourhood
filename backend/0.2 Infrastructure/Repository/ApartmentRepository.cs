@@ -1,22 +1,13 @@
-﻿using _0._4_Domain.Interfaces.Repository;
-using Data.Entities;
+﻿using Domain.Entities;
+using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Data.Repositories.Implementations
+namespace Infrastructure.Repository
 {
-    public class ApartmentRepository : IApartmentRepository
+    public class ApartmentRepository : BaseRepository<Apartment>, IApartmentRepository
     {
-        private readonly AqualinaAPIContext _context;
 
-        public ApartmentRepository(AqualinaAPIContext context)
-        {
-            _context = context;
-        }
+        public ApartmentRepository(AqualinaAPIContext _context) : base(_context) { }
 
         public async Task<List<Apartment>> GetApartmentsAsync()
         {
