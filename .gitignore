@@ -14,3 +14,5 @@ backend/.vs/backend/v17/.futdcache.v2
 backend/.vs/backend/v17/.suo
 backend/.vs/backend/v17/DocumentLayout.backup.json
 backend/.vs/backend/v17/DocumentLayout.json
+**/bin/
+**/obj/
