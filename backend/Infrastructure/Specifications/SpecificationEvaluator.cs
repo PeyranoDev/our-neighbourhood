@@ -1,0 +1,35 @@
+﻿using Domain.Common;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
+namespace Infrastructure.Specifications
+{
+    /// <summary>
+    /// Aplica un ISpecification&lt;T&gt; sobre un IQueryable&lt;T&gt; usando EF Core.
+    /// </summary>
+    public static class SpecificationEvaluator<T> where T : class
+    {
+        public static IQueryable<T> GetQuery(
+            IQueryable<T> inputQuery,
+            ISpecification<T> spec)
+        {
+            var query = inputQuery;
+
+            if (spec.Criteria != null)
+                query = query.Where(spec.Criteria);
+
+            foreach (var include in spec.Includes)
+                query = query.Include(include);
+
+            if (spec.OrderBy != null)
+                query = query.OrderBy(spec.OrderBy);
+            else if (spec.OrderByDescending != null)
+                query = query.OrderByDescending(spec.OrderByDescending);
+
+            if (spec.IsPagingEnabled && spec.Skip.HasValue && spec.Take.HasValue)
+                query = query.Skip(spec.Skip.Value).Take(spec.Take.Value);
+
+            return query;
+        }
+    }
+}
