@@ -27,7 +27,7 @@ namespace Application.Services.Implementations
 
         public async Task<PagedResponse<VehicleForResponseDTO>> GetVehiclesPagedAsync(VehicleFilterParams filters, PaginationParams pagination)
         {
-            var query = _vehicleRepository.GetAll();
+            var query = _vehicleRepository.GetAsQueryable();
 
             if (filters.IncludeRequests)
                 query = query.Include(v => v.Requests);

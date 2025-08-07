@@ -1,4 +1,3 @@
-﻿using Domain.Common.Enum;
 using Domain.Entities;
 using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -14,16 +13,6 @@ namespace Infrastructure.Repository
             _context = context;
         }
 
-        public async Task<User?> GetByUsernameWithTowerDataAsync(string username)
-        {
-            return await _context.Users
-                .Include(u => u.Role)
-                .Include(u => u.Apartment)
-                    .ThenInclude(a => a.Tower)
-                .Include(u => u.UserTowers) 
-                    .ThenInclude(ut => ut.Tower)
-                .FirstOrDefaultAsync(u => u.Username == username);
-        }
         public async Task<bool> UsernameExistsAsync(string username)
         {
             return await _context.Users.AnyAsync(u => u.Username == username);
@@ -77,40 +66,15 @@ namespace Infrastructure.Repository
             _context.Users.Remove(user);
             return await _context.SaveChangesAsync();
         }
-        public IQueryable<User> GetQueryable()
+        public IQueryable<User> GetAsQueryable()
         {
             return _context.Users
                 .Include(u => u.Role)
                 .Include(u => u.Apartment)
-                    .ThenInclude(a => a.Tower) 
+                    .ThenInclude(a => a.Tower)
                 .Include(u => u.UserTowers)
-                    .ThenInclude(ut => ut.Tower) 
+                    .ThenInclude(ut => ut.Tower)
                 .AsQueryable();
-        }
-
-        public async Task<IList<User>> GetAllSecurityAsync()
-        {
-            return await _context.Users
-                .Include(u => u.Role)
-                .Include(u => u.Apartment)
-                .Include(u => u.UserTowers)
-                .Where(u => u.Role.Type == UserRoleEnum.Security)
-                .ToListAsync();
-        }
-
-        public async Task<List<User>> GetAllOnDutySecurityAsync()
-        {
-            return await _context.Users
-                .Include(u => u.Role)
-                .Include(u => u.UserTowers)
-                .Where(u => u.Role.Type == UserRoleEnum.Security && u.IsOnDuty == true)
-                .ToListAsync();
-        }
-        public async Task<User> GetUserWithNotificationTokenAsync(int userId)
-        {
-            return await _context.Users
-                .Include(u => u.NotificationTokens)
-                .FirstOrDefaultAsync(u => u.Id == userId);
         }
     }
 }

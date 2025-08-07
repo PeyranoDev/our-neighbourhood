@@ -9,9 +9,9 @@ namespace Infrastructure.Repository
 
         public ApartmentRepository(AqualinaAPIContext _context) : base(_context) { }
 
-        public async Task<List<Apartment>> GetApartmentsAsync()
+        public IQueryable<Apartment> GetAsQueryable()
         {
-            return await _context.Apartments.ToListAsync();
+            return _context.Apartments.AsNoTracking();
         }
         public async Task<Apartment?> GetByIdAsync(int id)
         {

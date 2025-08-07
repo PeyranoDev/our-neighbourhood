@@ -1,5 +1,4 @@
-﻿using Domain.Common.Models;
-using Domain.Entities;
+﻿using Domain.Entities;
 
 namespace Domain.Repository
 {
@@ -11,6 +10,5 @@ namespace Domain.Repository
         Task<Tower?> GetByIdAsync(int id);
         Task<Tower?> GetByNameAsync(string name);
         Task UpdateAsync(Tower tower);
-        Task<PagedResult<Tower>> GetPublicTowerListAsync(TowerFilterParams filterParams);
     }
 }

@@ -14,24 +14,32 @@ namespace Infrastructure.Repository
             _context = context;
         }
 
+        public IQueryable<Role> GetAsQueryable()
+        {
+            return _context.Roles.AsNoTracking();
+        }
+
         public async Task<Role?> GetByIdAsync(int id)
         {
             return await _context.Roles.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public async Task<bool> RoleExistsAsync(int roleId)
+        public async Task CreateAsync(Role role)
         {
-            return await _context.Roles.AnyAsync(r => r.Id == roleId);
+            await _context.Roles.AddAsync(role);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<Role?> GetRoleByType(string type)
+        public async Task UpdateAsync(Role role)
         {
-            return await _context.Roles.FirstOrDefaultAsync(r => r.Type.ToString() == type);
+            _context.Roles.Update(role);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Role>> GetAllAsync()
+        public async Task DeleteAsync(Role role)
         {
-            return await _context.Roles.ToListAsync();
+            _context.Roles.Remove(role);
+            await _context.SaveChangesAsync();
         }
     }
 }

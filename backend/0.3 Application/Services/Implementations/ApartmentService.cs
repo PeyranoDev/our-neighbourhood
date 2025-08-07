@@ -3,6 +3,7 @@ using Application.Services.Interfaces;
 using Domain.Repository;
 using Application.Schemas.Requests;
 using Domain.Common.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.Implementations
 {
@@ -32,7 +33,7 @@ namespace Application.Services.Implementations
 
         public async Task<List<Apartment>> GetAllApartmentsAsync()
         {
-            return await _apartmentRepository.GetApartmentsAsync();
+            return await _apartmentRepository.GetAsQueryable().ToListAsync();
         }
 
         public async Task<Apartment?> GetApartmentByIdAsync(int id)

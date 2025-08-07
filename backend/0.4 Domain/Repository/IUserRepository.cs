@@ -12,11 +12,7 @@ namespace Domain.Repository
         Task<User?> GetByUsernameAsync(string username);
         Task<User> CreateAsync(User user);
         Task<int> DeleteAsync(User user);
-        IQueryable<User> GetQueryable();
+        IQueryable<User> GetAsQueryable();
         Task<bool> UsernameExistsAsync(string username);
-        Task<IList<User>> GetAllSecurityAsync();
-        Task<List<User>> GetAllOnDutySecurityAsync();
-        Task<User> GetUserWithNotificationTokenAsync(int userId);
-        Task<User?> GetByUsernameWithTowerDataAsync(string username);
     }
 }

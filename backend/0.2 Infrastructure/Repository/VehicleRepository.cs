@@ -47,7 +47,7 @@ namespace Infrastructure.Repository
             }
         }
 
-        public IQueryable<Vehicle> GetAll()
+        public IQueryable<Vehicle> GetAsQueryable()
         {
             return _context.Vehicles.AsNoTracking();
         }

@@ -44,36 +44,9 @@ namespace Infrastructure.Repository
             }
         }
 
-        public async Task<bool> UpdateLastUsedAsync(int tokenId)
+        public IQueryable<NotificationToken> GetAsQueryable()
         {
-            try
-            {
-                var token = await _context.NotificationTokens.FindAsync(tokenId);
-                if (token == null) return false;
-
-                token.LastSeen = DateTime.UtcNow;
-                return await _context.SaveChangesAsync() > 0;
-            }
-            catch (DbUpdateException)
-            {
-                return false;
-            }
-        }
-
-        public async Task<NotificationToken?> GetByTokenAsync(string tokenString)
-        {
-            return await _context.NotificationTokens
-                .AsNoTracking()
-                .FirstOrDefaultAsync(t => t.Token == tokenString);
-        }
-
-        public async Task<NotificationToken?> GetLatestByUserIdAsync(int userId)
-        {
-            return await _context.NotificationTokens
-                .AsNoTracking()
-                .Where(t => t.UserId == userId)
-                .OrderByDescending(t => t.CreatedAt)
-                .FirstOrDefaultAsync();
+            return _context.NotificationTokens.AsNoTracking();
         }
 
         public async Task<bool> DeleteExpiredTokensAsync(TimeSpan expirationTime)

@@ -44,11 +44,9 @@ namespace Infrastructure.Repository
             }
         }
 
-        public async Task<List<Request>> GetAllAsync()
+        public IQueryable<Request> GetAsQueryable()
         {
-            return await _context.Requests
-                .Include(r => r.Vehicle)
-                .ToListAsync();
+            return _context.Requests.AsNoTracking();
         }
 
         public async Task<Request?> GetLatestByVehicleAsync(int vehicleId)

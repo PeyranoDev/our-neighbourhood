@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Application.Services.Interfaces;
 using Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.Implementations
 {
@@ -14,17 +15,18 @@ namespace Application.Services.Implementations
 
         public async Task<bool> RoleExistsAsync(int roleId)
         {
-            return await _roleRepository.RoleExistsAsync(roleId);
+            return await _roleRepository.GetAsQueryable().AnyAsync(r => r.Id == roleId);
         }
 
         public async Task<Role?> GetRoleByType(string type)
         {
-            return await _roleRepository.GetRoleByType(type);
+            return await _roleRepository.GetAsQueryable()
+                .FirstOrDefaultAsync(r => r.Type.ToString() == type);
         }
 
         public async Task<List<Role>> GetAllAsync()
         {
-            return await _roleRepository.GetAllAsync();
+            return await _roleRepository.GetAsQueryable().ToListAsync();
         }
 
         public async Task<Role?> GetByIdAsync(int id)

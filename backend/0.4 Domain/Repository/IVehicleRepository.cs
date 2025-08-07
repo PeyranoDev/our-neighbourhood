@@ -5,7 +5,7 @@ namespace Domain.Repository
     public interface IVehicleRepository
     {
         Task<bool> AddAsync(Vehicle vehicle);
-        IQueryable<Vehicle> GetAll();
+        IQueryable<Vehicle> GetAsQueryable();
         Task<Vehicle?> GetByIdAsync(int id);
         Task<Request?> GetLastActiveRequestAsync(int vehicleId);
         Task<IList<Vehicle>> GetVehiclesPerUserIdAsync(int userId);

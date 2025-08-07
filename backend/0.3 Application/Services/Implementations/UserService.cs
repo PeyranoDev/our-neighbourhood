@@ -9,6 +9,7 @@ using Application.Schemas.Requests;
 using Domain.Common.Exceptions;
 using Application.Schemas.Responses;
 using Application.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.Implementations
 {
@@ -37,7 +38,13 @@ namespace Application.Services.Implementations
         public async Task<User?> ValidateAsync(CredentialsDTO dto)
         {
 
-            var user = await _userRepo.GetByUsernameWithTowerDataAsync(dto.Username);
+            var user = await _userRepo.GetAsQueryable()
+                .Include(u => u.Role)
+                .Include(u => u.Apartment)
+                    .ThenInclude(a => a.Tower)
+                .Include(u => u.UserTowers)
+                    .ThenInclude(ut => ut.Tower)
+                .FirstOrDefaultAsync(u => u.Username == dto.Username);
 
             if (user == null)
                 return null;
@@ -91,7 +98,7 @@ namespace Application.Services.Implementations
             UserFilterParams filters,
             PaginationParams pagination)
         {
-            var query = _userRepo.GetQueryable() 
+            var query = _userRepo.GetAsQueryable()
                 .ApplyFilters(filters)
                 .ApplySorting(pagination.SortBy, pagination.SortOrder);
 

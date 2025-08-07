@@ -2,6 +2,8 @@
 using Application.Services.Interfaces;
 using Domain.Entities;
 using Domain.Repository;
+using Domain.Common.Enum;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.Implementations
 {
@@ -41,7 +43,9 @@ namespace Application.Services.Implementations
 
         public async Task SendVehicleRequestNotificationForSecurity(int vehicleId, int userId)
         {
-            var securityUsers = await _userRepository.GetAllOnDutySecurityAsync();
+            var securityUsers = await _userRepository.GetAsQueryable()
+                .Where(u => u.Role.Type == UserRoleEnum.Security && u.IsOnDuty)
+                .ToListAsync();
             var tasks = securityUsers.Select(user =>
                 SendSecurityNotification(user, vehicleId, userId)
             );
@@ -131,13 +135,22 @@ namespace Application.Services.Implementations
 
         private async Task<NotificationToken?> GetValidNotificationToken(int userId)
         {
-            var token = await _tokenRepository.GetLatestByUserIdAsync(userId);
+            var token = await _tokenRepository.GetAsQueryable()
+                .Where(t => t.UserId == userId)
+                .OrderByDescending(t => t.CreatedAt)
+                .FirstOrDefaultAsync();
             return token != null && !string.IsNullOrEmpty(token.Token) ? token : null;
         }
 
         private async Task UpdateTokenLastUsed(int tokenId)
         {
-            await _tokenRepository.UpdateLastUsedAsync(tokenId);
+            var token = await _tokenRepository.GetAsQueryable()
+                .FirstOrDefaultAsync(t => t.Id == tokenId);
+            if (token != null)
+            {
+                token.LastSeen = DateTime.UtcNow;
+                await _tokenRepository.UpdateAsync(token);
+            }
         }
 
         private async Task<(Vehicle vehicle, User owner, NotificationToken token)> GetValidatedVehicleOwnerAndToken(int vehicleId)
@@ -145,7 +158,9 @@ namespace Application.Services.Implementations
             var vehicle = await _vehicleRepository.GetByIdAsync(vehicleId) ??
                 throw new InvalidOperationException("Vehículo no encontrado");
 
-            var owner = await _userRepository.GetUserWithNotificationTokenAsync(vehicle.OwnerId) ??
+            var owner = await _userRepository.GetAsQueryable()
+                .Include(u => u.NotificationTokens)
+                .FirstOrDefaultAsync(u => u.Id == vehicle.OwnerId) ??
                 throw new InvalidOperationException("Dueño del vehículo no encontrado");
 
             var token = owner.NotificationTokens

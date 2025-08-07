@@ -4,9 +4,10 @@ namespace Domain.Repository
 {
     public interface IRoleRepository
     {
-        Task<List<Role>> GetAllAsync();
+        IQueryable<Role> GetAsQueryable();
         Task<Role?> GetByIdAsync(int id);
-        Task<Role?> GetRoleByType(string type);
-        Task<bool> RoleExistsAsync(int roleId);
+        Task CreateAsync(Role role);
+        Task UpdateAsync(Role role);
+        Task DeleteAsync(Role role);
     }
 }

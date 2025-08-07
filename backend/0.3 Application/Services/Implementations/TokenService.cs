@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Repository;
 using Application.Schemas.Requests;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.Implementations
 {
@@ -21,7 +22,8 @@ namespace Application.Services.Implementations
 
         public async Task<bool> AddNotificationTokenAsync(NotificationTokenCreateDTO dto, int userId)
         {
-            var existingToken = await _tokenRepository.GetByTokenAsync(dto.Token);
+            var existingToken = await _tokenRepository.GetAsQueryable()
+                .FirstOrDefaultAsync(t => t.Token == dto.Token);
 
             if (existingToken != null)
             {

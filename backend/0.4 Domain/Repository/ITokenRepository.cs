@@ -8,9 +8,7 @@ namespace Domain.Repository
     {
         Task<bool> AddAsync(NotificationToken token);
         Task<bool> UpdateAsync(NotificationToken token);
-        Task<bool> UpdateLastUsedAsync(int tokenId);
         Task<bool> DeleteExpiredTokensAsync(TimeSpan expirationTime);
-        Task<NotificationToken?> GetByTokenAsync(string token);
-        Task<NotificationToken?> GetLatestByUserIdAsync(int userId);
+        IQueryable<NotificationToken> GetAsQueryable();
     }
 }
