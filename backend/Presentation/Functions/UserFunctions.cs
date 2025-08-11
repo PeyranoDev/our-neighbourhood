@@ -105,12 +105,7 @@ namespace Presentation.Functions
             var pagedResult = await _userService.GetUsersPagedAsync(filters, pagination);
 
             var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "application/json");
-
-            var json = System.Text.Json.JsonSerializer.Serialize(ApiResponse<PagedResponse<UserForResponse>>.Ok(pagedResult));
-
-            response.WriteString(json);
-
+            await response.WriteAsJsonAsync(ApiResponse<PagedResponse<UserForResponse>>.Ok(pagedResult));
             return response;
         }
 

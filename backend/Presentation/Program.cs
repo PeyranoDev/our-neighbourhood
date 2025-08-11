@@ -33,6 +33,7 @@ var host = new HostBuilder()
         var configuration = context.Configuration;
 
         var connectionString = configuration["ConnectionStr"];
+        var AutoMapperLiscense = configuration["AutoMapperLicenseKey"];
 
         services.AddDbContextPool<AqualinaAPIContext>(options =>
             options.UseSqlServer(connectionString));
@@ -40,8 +41,8 @@ var host = new HostBuilder()
         var jwtOptions = new JwtOptions
         {
             Key = configuration["JWTSecret"],
-            Issuer = configuration["Jwt:Issuer"],
-            Audience = configuration["Jwt:Audience"]
+            Issuer = configuration["JwtIssuer"],
+            Audience = configuration["JwtAudience"]
         };
         services.AddSingleton(jwtOptions);
 
@@ -72,6 +73,7 @@ var host = new HostBuilder()
 
         services.AddAutoMapper(cfg =>
         {
+            cfg.LicenseKey = AutoMapperLiscense;
             cfg.AddProfile<UserProfile>();
             cfg.AddProfile<VehicleProfile>();
             cfg.AddProfile<TowerProfile>();

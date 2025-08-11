@@ -3,11 +3,11 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.Functions.Worker.Middleware;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using System.Net;
 using System.Reflection;
 using System.Text;
 using Application.Helpers;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Presentation.Middlewares
 {
